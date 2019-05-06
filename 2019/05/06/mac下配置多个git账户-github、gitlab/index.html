@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>Mac下配置多个git账户 | Hexo</title>
+  <meta name="description" content="应用场景我们经常将代码托管到github、gitlab这样的网站上。为了避免每次push代码时都要输入用户名和密码，通常会选择使用ssh协议，将公钥保存到托管网站上。在实际开发中，往往要将代码托管到多个不同的网站上，公司内部可能维护一个gitlab，内部的代码需要托管到gitlab上，自己的开源代码托管到GitHub上等等，每个托管网站都对应一个git账户。默认情况下，一台电脑的Git只对应一个账">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac下配置多个git账户">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/mac下配置多个git账户-github、gitlab/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="应用场景我们经常将代码托管到github、gitlab这样的网站上。为了避免每次push代码时都要输入用户名和密码，通常会选择使用ssh协议，将公钥保存到托管网站上。在实际开发中，往往要将代码托管到多个不同的网站上，公司内部可能维护一个gitlab，内部的代码需要托管到gitlab上，自己的开源代码托管到GitHub上等等，每个托管网站都对应一个git账户。默认情况下，一台电脑的Git只对应一个账">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-06T13:06:38.063Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac下配置多个git账户">
+<meta name="twitter:description" content="应用场景我们经常将代码托管到github、gitlab这样的网站上。为了避免每次push代码时都要输入用户名和密码，通常会选择使用ssh协议，将公钥保存到托管网站上。在实际开发中，往往要将代码托管到多个不同的网站上，公司内部可能维护一个gitlab，内部的代码需要托管到gitlab上，自己的开源代码托管到GitHub上等等，每个托管网站都对应一个git账户。默认情况下，一台电脑的Git只对应一个账">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2019/05/06/mac下配置多个git账户-github、gitlab/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/ckyromgit" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">chenkeyou</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Development &amp; Operations</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Suzhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索">
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech>
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ckyromgit" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle="tooltip" data-placement="top"><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle="tooltip" data-placement="top"><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle="tooltip" data-placement="top"><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/06/mac下配置多个git账户-github、gitlab/" class="title">Mac下配置多个git账户</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-06T07:26:48.702Z" itemprop="datePublished">2019-05-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/04/29/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-04-29T07:59:26.591Z" itemprop="datePublished">2019-04-29</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-mac下配置多个git账户-github、gitlab" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mac下配置多个git账户
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/05/06/mac下配置多个git账户-github、gitlab/" class="article-date">
+	  <time datetime="2019-05-06T07:26:48.702Z" itemprop="datePublished">2019-05-06</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/05/06/mac下配置多个git账户-github、gitlab/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><p>我们经常将代码托管到github、gitlab这样的网站上。为了避免每次push代码时都要输入用户名和密码，通常会选择使用ssh协议，将公钥保存到托管网站上。在实际开发中，往往要将代码托管到多个不同的网站上，公司内部可能维护一个gitlab，内部的代码需要托管到gitlab上，自己的开源代码托管到GitHub上等等，每个托管网站都对应一个git账户。默认情况下，一台电脑的Git只对应一个账户，只能往一个网站push代码，非常不便。这篇博客将介绍如何在一个Git终端中配置多个账户，同时管理多个托管网站的代码。</p>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>首先，需要准备好对Git的全局用户进行配置。在初次安装Git时，往往会使用如下的命令配置全局用户名和邮箱：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xxx&quot; // 配置全局用户名，如Github上注册的用户名</span><br><span class="line">git config --global user.email &quot;yyy@mail.com&quot; // 配置全局邮箱，如Github上配置的邮箱</span><br></pre></td></tr></table></figure>
+<p>这个<code>--global</code>选项，是指这里配置的<code>user.name</code>和<code>user.email</code>是相对于全局进行配置的，即不同的Git仓库默认的用户名和邮箱都是这个值。由于需要管理多个账户，所以仅仅使用这个全局值是不够的，<strong>需要在每个仓库中单独配置</strong>。对此，有两种处理方法：</p>
+<p>如果之前已经使用该命令进行配置，则先使用如下命令清除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset user.name</span><br><span class="line">git config --global --unset user.email</span><br></pre></td></tr></table></figure>
+<p>如果不确定是否已经配置过，可以使用下面的命令查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name</span><br><span class="line">git config --global user.email</span><br></pre></td></tr></table></figure>
+<h1 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h1><h3 id="1-对每个账户生成一对密钥"><a href="#1-对每个账户生成一对密钥" class="headerlink" title="1. 对每个账户生成一对密钥"></a>1. 对每个账户生成一对密钥</h3><p>进入保存秘钥的目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>根据账户邮箱生成秘钥。</p>
+<p>首先生成GitHub上通信的密钥对，例如我在GitHub上的邮箱是<a href="mailto:`gckyoogle@gmail.com" target="_blank" rel="noopener">`gckyoogle@gmail.com</a>`，则命令为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 生成公钥、密钥的同时指定文件名，Github使用</span><br><span class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa_github -C "gckyoogle@gmail.com"</span><br></pre></td></tr></table></figure>
+<p>这里要求对秘钥进行命名，默认的文件名是<code>id_rsa</code>。为了方便区分，我这里命名为<code>id_rsa_github</code>。接下来的提示都直接进行回车，直到秘钥生成。通过<code>ls</code>命令，可以看到刚刚生成的密钥对<code>id_rsa_github</code>和<code>id_rsa_github.pub</code>，中<code>id_rsa_github.pub</code>是公钥。</p>
+<p>然后生成GitLab上通信的密钥对，假如我在公司内部邮箱是<a href="mailto:`keyou.chen@xxx.com" target="_blank" rel="noopener">`keyou.chen@xxx.com</a><code>，按照同样的步骤生成</code>id_rsa_gitlab`的秘钥对，命令为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 生成公钥、密钥的同时指定文件名，Gitlab使用</span><br><span class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitlab -C "keyou.chen@xxx.com"</span><br></pre></td></tr></table></figure>
+<h3 id="2-私钥添加到本地"><a href="#2-私钥添加到本地" class="headerlink" title="2.私钥添加到本地"></a>2.私钥添加到本地</h3><p>SSH协议的原理，就是在托管网站上使用公钥，在本地使用私钥，这样本地仓库就可以和远程仓库进行通信。在上一步已经生成了秘钥文件，接下来需要使用秘钥文件，首先是在本地使用秘钥文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 将GitHub私钥添加到本地</span><br><span class="line">ssh-add ~/.ssh/id_rsa_github </span><br><span class="line"><span class="meta">#</span> 将GitLab私钥添加到本地</span><br><span class="line">ssh-add ~/.ssh/id_rsa_gitlab</span><br></pre></td></tr></table></figure>
+<p>为了检验本地是否添加成功，可以使用<code>ssh-add -l</code>命令进行查看</p>
+<h3 id="3-管理本地密钥"><a href="#3-管理本地密钥" class="headerlink" title="3.管理本地密钥"></a>3.管理本地密钥</h3><p>由于添加了多个密钥文件，所以需要对这多个密钥进行管理。在<code>.ssh</code>目录下新建一个config文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br><span class="line">touch config</span><br></pre></td></tr></table></figure>
+<p>编辑<code>config</code>文件，添加以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 网站的别名，随意取</span><br><span class="line">Host github </span><br><span class="line"><span class="meta">#</span> 托管网站的域名</span><br><span class="line">HostName github.com </span><br><span class="line"><span class="meta">#</span> 托管网站上的用户名，GitHub用户名</span><br><span class="line">User ckyromgit </span><br><span class="line"><span class="meta">#</span> 使用的密钥文件</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> GitLab的配置与上面的GitHub类似</span><br><span class="line">Host gitlab</span><br><span class="line">HostName git.xxx.com</span><br><span class="line">User keyou.chen</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_gitlab</span><br></pre></td></tr></table></figure>
+<h3 id="4-公钥添加到托管网站"><a href="#4-公钥添加到托管网站" class="headerlink" title="4.公钥添加到托管网站"></a>4.公钥添加到托管网站</h3><p>首先设置GitHub网站，步骤如下：</p>
+<ul>
+<li>访问GitHub网站，用户名密码登录</li>
+<li>点击右上方头像选择<code>settings</code></li>
+<li>选择SSH and GPG keys</li>
+<li>点击<code>New SSH key</code></li>
+<li>设置公钥的Title，名字可以随便取，但是最好能标识出来自哪个客户端；拷贝id_rsa_github文件中的内容粘贴到Key输入框中。</li>
+<li>点击下方的<code>Add SSH key</code>按钮</li>
+</ul>
+<p>至此，GitHub网站的公钥添加完成，使用如下命令验证是否有效：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>之前<code>config</code>文件中给GitHub网站配置过别名为github，可以直接使用别名：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github</span><br></pre></td></tr></table></figure>
+<p>然后配置Gitlab网站，步骤与配置GitHub相同。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h3 id="1-从远端拉取代码"><a href="#1-从远端拉取代码" class="headerlink" title="1.从远端拉取代码"></a>1.从远端拉取代码</h3><p>从GitHub上克隆代码库test，操作命令为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:ckyromgit/test.git</span><br></pre></td></tr></table></figure>
+<p>由于使用了别名gitlab，所以实际使用的复制命令应当为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github:ckyromgit/test.git</span><br></pre></td></tr></table></figure>
+<p>这种方法较为简单，修改后的代码无需额外配置，可以直接push</p>
+<h3 id="2-本地已经存在代码库"><a href="#2-本地已经存在代码库" class="headerlink" title="2.本地已经存在代码库"></a>2.本地已经存在代码库</h3><p>这种情况适用于本地新建的仓库需要与远端进行关联，或者之前已经使用sourceTree等图形界面软件拷贝的仓库。进入本地仓库文件夹，需要单独配置该仓库的用户名和邮箱</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name "keyou.chen"</span><br><span class="line">git config user.email "keyou.chen@xxx.com"</span><br></pre></td></tr></table></figure>
+<p>然后，进入本地仓库的git目录，打开config文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd .git # 该目录是隐藏的，ls命令不可见，但是可以直接进入，如果是新建的文件夹需要先执行git init</span><br><span class="line">vim config</span><br></pre></td></tr></table></figure>
+<p>在<code>config</code>文件中，修改（config文件中已有remote “origin”信息）或者添加（config文件中不包含remote “origin”信息）分支信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[remote "origin"]</span><br><span class="line">        url = git@gitlab:keyou.chen/test.git</span><br><span class="line">        fetch = +refs/heads/*:refs/remotes/origin/*</span><br></pre></td></tr></table></figure>
+<p>主要是修改url部分，原生的信息一般是<a href="mailto:`git@gitlab.com" target="_blank" rel="noopener">`git@gitlab.com</a>:keyou.chen/test.git`，需要将gitlab.com使用别名gitlab代替。</p>
+<p>可以看到，仓库中的关键是要配置好用户名和邮箱，以及使用别名。使用别名的目的是为了通过别名，将本地仓库与密钥目录<code>.ssh</code>文件夹下的密钥进行管理，这样就完成了本地仓库使用的私钥与托管网站使用的公钥的配对，而用户名和邮箱是该仓库使用SSH协议时需要用到的信息</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2019/05/06/mac下配置多个git账户-github、gitlab/" title="Mac下配置多个git账户" target="_blank" rel="external">http://yoursite.com/2019/05/06/mac下配置多个git账户-github、gitlab/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ckyromgit" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt>
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ckyromgit" target="_blank"><span class="text-dark">chenkeyou</span><small class="ml-1x">Development &amp; Operations</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2019/04/29/hello-world/" title="Hello World"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫">
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫">
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class>
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ckyromgit" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle="tooltip" data-placement="top"><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle="tooltip" data-placement="top"><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle="tooltip" data-placement="top"><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
