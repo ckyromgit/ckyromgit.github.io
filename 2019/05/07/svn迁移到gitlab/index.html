@@ -18,18 +18,18 @@
   
   
   <title>svn迁移到gitlab | Hexo</title>
-  <meta name="description" content="背景公司内部">
+  <meta name="description" content="背景公司内部新搭建了gitlab代码仓库，决定把原来SVN上的项目迁移到gitlab上，同时需要保留每个账户在SVN上的提交记录。我的迁移是在macOS上完成的。 迁移步骤###1.安装git-svn工具 centos系统可以使用下面的命令安装： 1yum install -y git-svn macOS系统原来已经安装过git，可以直接使用git svn命令 ###2.获取SVN提交用户名 建立">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="svn迁移到gitlab">
 <meta property="og:url" content="https://ckyromgit.github.io/2019/05/07/svn迁移到gitlab/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="背景公司内部">
+<meta property="og:description" content="背景公司内部新搭建了gitlab代码仓库，决定把原来SVN上的项目迁移到gitlab上，同时需要保留每个账户在SVN上的提交记录。我的迁移是在macOS上完成的。 迁移步骤###1.安装git-svn工具 centos系统可以使用下面的命令安装： 1yum install -y git-svn macOS系统原来已经安装过git，可以直接使用git svn命令 ###2.获取SVN提交用户名 建立">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-07T10:43:59.600Z">
+<meta property="og:updated_time" content="2019-05-07T12:46:30.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="svn迁移到gitlab">
-<meta name="twitter:description" content="背景公司内部">
+<meta name="twitter:description" content="背景公司内部新搭建了gitlab代码仓库，决定把原来SVN上的项目迁移到gitlab上，同时需要保留每个账户在SVN上的提交记录。我的迁移是在macOS上完成的。 迁移步骤###1.安装git-svn工具 centos系统可以使用下面的命令安装： 1yum install -y git-svn macOS系统原来已经安装过git，可以直接使用git svn命令 ###2.获取SVN提交用户名 建立">
   <!-- Canonical links -->
   <link rel="canonical" href="https://ckyromgit.github.io/2019/05/07/svn迁移到gitlab/index.html">
   
@@ -371,7 +371,24 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>公司内部</p>
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>公司内部新搭建了gitlab代码仓库，决定把原来SVN上的项目迁移到gitlab上，同时需要保留每个账户在SVN上的提交记录。我的迁移是在macOS上完成的。</p>
+<h1 id="迁移步骤"><a href="#迁移步骤" class="headerlink" title="迁移步骤"></a>迁移步骤</h1><p>###1.安装git-svn工具</p>
+<p>centos系统可以使用下面的命令安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git-svn</span><br></pre></td></tr></table></figure>
+<p>macOS系统原来已经安装过git，可以直接使用<code>git svn</code>命令</p>
+<p>###2.获取SVN提交用户名</p>
+<p>建立users文件来保存SVN和gitlab账号直接的关联，格式为svn用户名 = gitlab用户名，如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">san.zhang = san.zhang &lt;san.zhang@xxx.com&gt;</span><br><span class="line">si.li = si.li &lt;si.li@xxx.com&gt;</span><br></pre></td></tr></table></figure>
+<p>cd到待迁移项目的根目录执行下面的命令可以快速生成users：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn log -q | awk -F '|' '/^r/ &#123;sub("^ ", "", $2); sub(" $", "", $2); print $2" = "$2" &lt;"$2"&gt;"&#125;' | sort -u &gt; users</span><br></pre></td></tr></table></figure>
+<h3 id="3-检出svn项目到本地"><a href="#3-检出svn项目到本地" class="headerlink" title="3.检出svn项目到本地"></a>3.检出svn项目到本地</h3><p>把svn项目trunk下的文件和文件夹先检出到本地的一个目录(目录名字可以随便取，例如 projectToGitlab)，如果需要迁移其他分支的代码，可以把trunk改成分支名字。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git svn clone  https://svn.xxx.com/svn/projectName/trunk projectToGitlab  --no-metadata  --authors-file=users</span><br></pre></td></tr></table></figure>
+<h3 id="4-添加远程gitlab库"><a href="#4-添加远程gitlab库" class="headerlink" title="4.添加远程gitlab库"></a>4.添加远程gitlab库</h3><p>先在gitlab上创建相应的工程，设置好相关权限，假如</p>
+<p>使用git remote命令添加远程服务器：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd projectToGitlab</span><br><span class="line">git remote add origin http://git.xxx.com/department/projectName.git</span><br></pre></td></tr></table></figure>
+<p><strong>说明</strong>：<a href="http://git.xxx.com/department/projectName.git是项目的gitlab地址，通过http协议访问" target="_blank" rel="noopener">http://git.xxx.com/department/projectName.git是项目的gitlab地址，通过http协议访问</a></p>
+<h3 id="5-上传代码到gitlab"><a href="#5-上传代码到gitlab" class="headerlink" title="5.上传代码到gitlab"></a>5.上传代码到gitlab</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p>至此就完成了从 SVN 到 GitLab 的迁移，并且是包含了 SVN 提交记录的。</p>
 
       
     </div>
