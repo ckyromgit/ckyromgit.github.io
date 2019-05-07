@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>MarkDown语法 | Hexo</title>
+  <meta name="description" content="[TOC] 前言1.MarkDown 优点 纯文本，易于编辑，跨平台支持 语法简单，易学，容读 方便转换为 Html 和 PDF，适合网站写作，成为一种网络书写语言 支持 Html 特性，可以自定义复杂样式  2. 支持网站 GitHub StackOverflow CSDN OpenStreetMap 博客园 简书 知乎  3. 笔记 有道云笔记 云协作  为知笔记 外部内容插件收集   4.">
+<meta name="keywords" content="Markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MarkDown语法">
+<meta property="og:url" content="https://ckyromgit.github.io/2019/05/07/MarkDown语法/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="[TOC] 前言1.MarkDown 优点 纯文本，易于编辑，跨平台支持 语法简单，易学，容读 方便转换为 Html 和 PDF，适合网站写作，成为一种网络书写语言 支持 Html 特性，可以自定义复杂样式  2. 支持网站 GitHub StackOverflow CSDN OpenStreetMap 博客园 简书 知乎  3. 笔记 有道云笔记 云协作  为知笔记 外部内容插件收集   4.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://devstorepic.qiniudn.com/Fv7Ca-q1LbozqBBQSxYQTjn9hJEk" markdown"">
+<meta property="og:updated_time" content="2019-05-07T10:45:47.508Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MarkDown语法">
+<meta name="twitter:description" content="[TOC] 前言1.MarkDown 优点 纯文本，易于编辑，跨平台支持 语法简单，易学，容读 方便转换为 Html 和 PDF，适合网站写作，成为一种网络书写语言 支持 Html 特性，可以自定义复杂样式  2. 支持网站 GitHub StackOverflow CSDN OpenStreetMap 博客园 简书 知乎  3. 笔记 有道云笔记 云协作  为知笔记 外部内容插件收集   4.">
+<meta name="twitter:image" content="http://devstorepic.qiniudn.com/Fv7Ca-q1LbozqBBQSxYQTjn9hJEk" markdown"">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://ckyromgit.github.io/2019/05/07/MarkDown语法/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/ckyromgit" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">chenkeyou</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Development &amp; Operations</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Suzhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索">
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech>
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ckyromgit" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle="tooltip" data-placement="top"><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle="tooltip" data-placement="top"><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle="tooltip" data-placement="top"><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Blog/" style="font-size: 13px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 13px;">Markdown</a> <a href="/tags/git/" style="font-size: 13px;">git</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Markdown/">Markdown</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/07/MarkDown语法/" class="title">MarkDown语法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-07T10:45:47.508Z" itemprop="datePublished">2019-05-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/linux/">linux</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/07/svn迁移到gitlab/" class="title">svn迁移到gitlab</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-07T10:12:34.000Z" itemprop="datePublished">2019-05-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Blog/">Blog</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/06/mac下配置多个git账户-github、gitlab/" class="title">Mac下配置多个git账户</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-06T14:17:30.379Z" itemprop="datePublished">2019-05-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/04/29/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-04-29T07:59:26.591Z" itemprop="datePublished">2019-04-29</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-MarkDown语法" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MarkDown语法
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/05/07/MarkDown语法/" class="article-date">
+	  <time datetime="2019-05-07T10:45:47.508Z" itemprop="datePublished">2019-05-07</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Markdown/">Markdown</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Markdown/">Markdown</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/05/07/MarkDown语法/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h3 id="1-MarkDown-优点"><a href="#1-MarkDown-优点" class="headerlink" title="1.MarkDown 优点"></a>1.MarkDown 优点</h3><ul>
+<li>纯文本，易于编辑，跨平台支持</li>
+<li>语法简单，易学，容读</li>
+<li>方便转换为 Html 和 PDF，适合网站写作，成为一种网络书写语言</li>
+<li>支持 Html 特性，可以自定义复杂样式</li>
+</ul>
+<h3 id="2-支持网站"><a href="#2-支持网站" class="headerlink" title="2. 支持网站"></a>2. 支持网站</h3><ul>
+<li>GitHub</li>
+<li>StackOverflow</li>
+<li>CSDN</li>
+<li>OpenStreetMap</li>
+<li>博客园</li>
+<li>简书</li>
+<li>知乎</li>
+</ul>
+<h3 id="3-笔记"><a href="#3-笔记" class="headerlink" title="3. 笔记"></a>3. 笔记</h3><ul>
+<li><p>有道云笔记 <strong>云协作</strong></p>
+</li>
+<li><p>为知笔记 <strong>外部内容插件收集</strong></p>
+</li>
+</ul>
+<h3 id="4-编辑器"><a href="#4-编辑器" class="headerlink" title="4. 编辑器"></a>4. 编辑器</h3><ul>
+<li><a href="https://www.typora.io/" target="_blank" rel="noopener">Typora</a> <strong>免费 即时渲染</strong> </li>
+<li><a href="https://simplenote.com/" target="_blank" rel="noopener">Simplenote</a> <strong>全平台 电脑端和移动端</strong></li>
+<li><a href="https://boostnote.io/" target="_blank" rel="noopener">Boostnote</a> <strong>100多种编程语言高亮</strong></li>
+<li><a href="https://inkdrop.app/" target="_blank" rel="noopener">Inkdrop</a> <strong>支持丰富的插件 付费</strong></li>
+</ul>
+<h3 id="5-在线编辑器"><a href="#5-在线编辑器" class="headerlink" title="5. 在线编辑器"></a>5. 在线编辑器</h3><ul>
+<li><a href="https://stackedit.io/" target="_blank" rel="noopener">stackedit.io</a> <strong>中文支持不友好</strong></li>
+<li><a href="https://dillinger.io/" target="_blank" rel="noopener">Dillinger.io</a> <strong>来自国外不够稳定</strong></li>
+<li><a href="https://maxiang.io/" target="_blank" rel="noopener">maxiang.io</a> <strong>付费 可免费试用</strong></li>
+</ul>
+<h1 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h1><h1 id="1-这是一级标题：-空格-文字"><a href="#1-这是一级标题：-空格-文字" class="headerlink" title="1. 这是一级标题：# 空格 文字"></a>1. 这是一级标题：# 空格 文字</h1><h2 id="2-这是二级标题：-空格-文字"><a href="#2-这是二级标题：-空格-文字" class="headerlink" title="2. 这是二级标题：## 空格 文字"></a>2. 这是二级标题：## 空格 文字</h2><h3 id="3-这是三级标题：-空格-文字"><a href="#3-这是三级标题：-空格-文字" class="headerlink" title="3. 这是三级标题：### 空格 文字"></a>3. 这是三级标题：### 空格 文字</h3><p>4.目录：[toc]+换行（github上不支持，CSDN上支持。）</p>
+<h1 id="二、字体"><a href="#二、字体" class="headerlink" title="二、字体"></a>二、字体</h1><ol>
+<li><p><strong>加粗</strong>： **文字<em>\</em>   __文字__</p>
+</li>
+<li><p><em>斜体</em>： *文字*</p>
+</li>
+<li><p><strong><em>斜体加粗</em></strong>： ***+文字+***</p>
+</li>
+<li><p><del>删除线</del>：~~文字~~</p>
+</li>
+<li><p><u>下划线</u>：ctrl+u</p>
+</li>
+</ol>
+<h1 id="三、文字"><a href="#三、文字" class="headerlink" title="三、文字"></a>三、文字</h1><ol>
+<li>>引用</li>
+</ol>
+<blockquote>
+<p>文字</p>
+</blockquote>
+<ol start="2">
+<li>>>引用再引用</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>引用再引用:</p>
+</blockquote>
+</blockquote>
+<ol start="3">
+<li>==高亮==： == 高亮 ==(没有空格)</li>
+</ol>
+<h1 id="四、分割线"><a href="#四、分割线" class="headerlink" title="四、分割线"></a>四、分割线</h1><p>三个或三个以上的 -  比如： ---</p>
+<hr>
+<p>三个或三个以上的<em>  比如：\</em>**</p>
+<hr>
+<h1 id="五、图片"><a href="#五、图片" class="headerlink" title="五、图片"></a>五、图片</h1><blockquote>
+<p>！[图片alt]（图片地址  “图片title”）</p>
+</blockquote>
+<p><img src="http://devstorepic.qiniudn.com/Fv7Ca-q1LbozqBBQSxYQTjn9hJEk&quot;MarkDown&quot;" alt="语法速记"></p>
+<h1 id="六、超链接"><a href="#六、超链接" class="headerlink" title="六、超链接"></a>六、超链接</h1><ol>
+<li><p>行内式</p>
+<blockquote>
+<p>[超链接名](超链接地址 “超链接title”)</p>
+</blockquote>
+<p><a href="http://baidu.com" target="_blank" rel="noopener">百度</a></p>
+</li>
+<li><p>参考形式</p>
+<blockquote>
+<p>[超链接名称][1]</p>
+<p>[1]:超链接地址</p>
+</blockquote>
+<p>我使用 <a href="https://www.google.com/" title="Google" target="_blank" rel="noopener">Google</a> 进行学术搜索多一些,使用 <a href="https://www.baidu.com/" title="Baidu Search" target="_blank" rel="noopener">百度</a>进行日常搜索多一些，很少使用<a href="https://cn.bing.com/" title="Bing Search" target="_blank" rel="noopener">Bing</a> .<br>我不能一边使用 <a href="https://www.baidu.com/" title="Baidu Search" target="_blank" rel="noopener">百度搜索</a> 一边骂他不如 <a href="https://www.google.com/" title="Google" target="_blank" rel="noopener">Google</a>，我们需要学会的是利用资源。</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>自动链接</p>
+<blockquote>
+<p>&lt;连接地址></p>
+</blockquote>
+</li>
+</ol>
+<p>​       &lt;<a href="http://www.baidu.com&gt;" target="_blank" rel="noopener">www.baidu.com&gt;</a></p>
+<h1 id="七、列表"><a href="#七、列表" class="headerlink" title="七、列表"></a>七、列表</h1><ul>
+<li><p>无序列表</p>
+<ul>
+<li>- 空格 文字</li>
+</ul>
+<ul>
+<li>+ 空格 文字</li>
+</ul>
+<ul>
+<li>* 空格 文字</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>有序列表<ol start="2">
+<li>数字 点 空格 文字</li>
+</ol>
+</li>
+</ol>
+<h1 id="八、表格"><a href="#八、表格" class="headerlink" title="八、表格"></a>八、表格</h1><blockquote>
+<p>|表头|表头|表头|</p>
+</blockquote>
+<p><strong>用户可以在 Excel 上复制表格内容直接粘贴在 Typora 上，其将自动转成表格形式</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">左对齐</th>
+<th style="text-align:center">居中</th>
+<th style="text-align:right"><strong>右对齐</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h1 id="九、代码块"><a href="#九、代码块" class="headerlink" title="九、代码块"></a>九、代码块</h1><p><code>代码内容</code>：`内容`</p>
+<blockquote>
+<p>代码块： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```java</span><br><span class="line">private void judge() &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">judge</span>:</span></span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<h1 id="十、图"><a href="#十、图" class="headerlink" title="十、图"></a>十、图</h1><ol>
+<li>流程图</li>
+</ol>
+<blockquote>
+<p>start         # 开始</p>
+<p>end           # 结束</p>
+<p>operation     # 操作</p>
+<p>condition     # 条件</p>
+<p>inputoutput   # 输入或产出</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">​```flow</span><br><span class="line">st=&gt;start: Start</span><br><span class="line">i=&gt;inputoutput: 输入年份n</span><br><span class="line">cond1=&gt;condition: n能否被4整除？</span><br><span class="line">cond2=&gt;condition: n能否被100整除？</span><br><span class="line">cond3=&gt;condition: n能否被400整除？</span><br><span class="line">o1=&gt;inputoutput: 输出非闰年</span><br><span class="line">o2=&gt;inputoutput: 输出非闰年</span><br><span class="line">o3=&gt;inputoutput: 输出闰年</span><br><span class="line">o4=&gt;inputoutput: 输出闰年</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;i-&gt;cond1</span><br><span class="line">cond1(no)-&gt;o1-&gt;e</span><br><span class="line">cond1(yes)-&gt;cond2</span><br><span class="line">cond2(no)-&gt;o3-&gt;e</span><br><span class="line">cond2(yes)-&gt;cond3</span><br><span class="line">cond3(yes)-&gt;o2-&gt;e</span><br><span class="line">cond3(no)-&gt;o4-&gt;e</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">​```flow</span><br><span class="line">st=&gt;start: Start</span><br><span class="line">i=&gt;inputoutput: 输入年份n</span><br><span class="line">cond1=&gt;condition: n能否被4整除？</span><br><span class="line">cond2=&gt;condition: n能否被100整除？</span><br><span class="line">cond3=&gt;condition: n能否被400整除？</span><br><span class="line">o1=&gt;inputoutput: 输出非闰年</span><br><span class="line">o2=&gt;inputoutput: 输出非闰年</span><br><span class="line">o3=&gt;inputoutput: 输出闰年</span><br><span class="line">o4=&gt;inputoutput: 输出闰年</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;i-&gt;cond1</span><br><span class="line">cond1(no)-&gt;o1-&gt;e</span><br><span class="line">cond1(yes)-&gt;cond2</span><br><span class="line">cond2(no)-&gt;o3-&gt;e</span><br><span class="line">cond2(yes)-&gt;cond3</span><br><span class="line">cond3(yes)-&gt;o2-&gt;e</span><br><span class="line">cond3(no)-&gt;o4-&gt;e</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>序列图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">title: 序列图</span><br><span class="line">participant 参与者A</span><br><span class="line">participant 参与者B</span><br><span class="line">参与者A -&gt; 参与者B: How are you?</span><br><span class="line">Note left of 参与者B: 左顾</span><br><span class="line">Note right of 参与者B: 右盼</span><br><span class="line">Note over 参与者B,参与者C:询问</span><br><span class="line">参与者B -&gt; 参与者C :说啥嘞？</span><br><span class="line">参与者C --&gt; 参与者B:- -怎么是你？</span><br><span class="line">Note over 参与者B: ？！</span><br><span class="line">参与者B --&gt; 参与者A: Fine，thank you.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">title: 序列图</span><br><span class="line">   participant 参与者A</span><br><span class="line">   participant 参与者B</span><br><span class="line">   参与者A -&gt; 参与者B: How are you?</span><br><span class="line">   Note left of 参与者B: 左顾</span><br><span class="line">   Note right of 参与者B: 右盼</span><br><span class="line">   Note over 参与者B,参与者C:询问</span><br><span class="line">   参与者B -&gt; 参与者C :说啥嘞？</span><br><span class="line">   参与者C --&gt; 参与者B:- -怎么是你？</span><br><span class="line">   Note over 参与者B: ？！</span><br><span class="line">   参与者B --&gt; 参与者A: Fine，thank you.</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="十一、数学公式"><a href="#十一、数学公式" class="headerlink" title="十一、数学公式"></a>十一、数学公式</h1><p>数学公式：$$+换行<br>$$<br>a^2+b^2=c^2<br>$$</p>
+<h1 id="十二、复选框"><a href="#十二、复选框" class="headerlink" title="十二、复选框"></a>十二、复选框</h1><blockquote>
+<p>- 空格 [ 空格 ] 空格 文字 </p>
+</blockquote>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 未选中</li>
+</ul>
+<blockquote>
+<p>- 空格 [x] 空格 文字 </p>
+</blockquote>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 选中</li>
+</ul>
+<h1 id="十三、上标和下标"><a href="#十三、上标和下标" class="headerlink" title="十三、上标和下标"></a>十三、上标和下标</h1><p>[\^上标]：上标<a href="这是注释">^上标</a></p>
+<p>~下标~：下标~下标~</p>
+<h1 id="十四、快捷键"><a href="#十四、快捷键" class="headerlink" title="十四、快捷键"></a>十四、快捷键</h1><ul>
+<li>加粗         ：<code>Ctrl+B</code></li>
+</ul>
+<ul>
+<li>斜体         ：<code>Ctrl+I</code></li>
+<li>字体         ：<code>Ctrl+数字</code></li>
+<li>下划线     ：<code>Ctrl+U</code></li>
+<li>返回开头 ：<code>Ctrl+Home</code></li>
+<li>返回结尾 ：<code>Ctrl+End</code></li>
+<li>生成表格 ：<code>Ctrl+T</code></li>
+<li>创建链接 ：<code>Ctrl+K</code></li>
+<li>选中单词 ：<code>Ctrl+D</code></li>
+<li>选中一行 ：<code>Ctrl+L</code></li>
+<li>替换        ：<code>Ctrl+H</code></li>
+<li>不要尝试：<code>Ctrl+W</code></li>
+</ul>
+<h1 id="十五、问题"><a href="#十五、问题" class="headerlink" title="十五、问题"></a>十五、问题</h1><ul>
+<li><p>Typora换行会自动产生一个空白行</p>
+<p>​    使用<strong>shift+enter</strong>即可避免产生空白行。</p>
+</li>
+<li><p>自动继承上一行格式</p>
+<p>​    使用 <strong>ctrl+[</strong> 取消格式。</p>
+</li>
+<li><p>Hexo使用MarkDown插入本地图片无法显示</p>
+<p>配置<strong>_config.yml</strong>里面的<strong>post_asset_folder:false</strong>这个选项设置为<strong>true</strong>，<strong>url</strong>填写为自己的githubpage地址。<br>安装<strong>hexo-asset-image</strong>，运行<strong>hexo n “xxxx”</strong>来生成md博文时，<strong>/source/_posts</strong>文件夹内除了xxxx.md文件还有一个同名的文件夹，把图片放入该文件夹。<br>使用![xxx](xxx/xxx.png)直接插入图片即可。</p>
+<p><code>npm install https://github.com/7ym0n/hexo-asset-image --sa</code></p>
+</li>
+<li><p>表格合并，使用html代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>列1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>列2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>列3<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>a1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>a2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">"2"</span>&gt;</span>b1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>b2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>b3<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>c2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>c3<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<table><br>  <tr><br>    <th>列1</th><br>    <th>列2</th><br>    <th>列3</th><br>  </tr><br>  <tr><br>    <td>a1</td><br>    <td colspan="2">a2</td><br>  </tr><br>  <tr><br>    <td rowspan="2">b1</td><br>    <td>b2</td><br>    <td>b3</td><br>  </tr><br>  <tr><br>    <td>c2</td><br>    <td>c3</td><br>  </tr><br></table>
+
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://ckyromgit.github.io/2019/05/07/MarkDown语法/" title="MarkDown语法" target="_blank" rel="external">https://ckyromgit.github.io/2019/05/07/MarkDown语法/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ckyromgit" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt>
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ckyromgit" target="_blank"><span class="text-dark">chenkeyou</span><small class="ml-1x">Development &amp; Operations</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2019/05/07/svn迁移到gitlab/" title="svn迁移到gitlab"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫">
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫">
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class>
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ckyromgit" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle="tooltip" data-placement="top"><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle="tooltip" data-placement="top"><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle="tooltip" data-placement="top"><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

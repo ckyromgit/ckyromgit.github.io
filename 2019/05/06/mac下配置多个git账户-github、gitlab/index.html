@@ -217,7 +217,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -227,7 +227,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -237,7 +237,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Blog/" style="font-size: 13px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/git/" style="font-size: 13px;">git</a>
+      <a href="/tags/Blog/" style="font-size: 13px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 13px;">Markdown</a> <a href="/tags/git/" style="font-size: 13px;">git</a>
     </div>
   </div>
 
@@ -246,7 +246,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -258,6 +258,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Markdown/">Markdown</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/07/MarkDown语法/" class="title">MarkDown语法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-07T10:45:47.508Z" itemprop="datePublished">2019-05-07</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -368,17 +383,17 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure>
 <p>根据账户邮箱生成秘钥。</p>
 <p>首先生成GitHub上通信的密钥对，例如我在GitHub上的邮箱是<a href="mailto:`gckyoogle@gmail.com" target="_blank" rel="noopener">`gckyoogle@gmail.com</a>`，则命令为：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 生成公钥、密钥的同时指定文件名，Github使用</span><br><span class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa_github -C "gckyoogle@gmail.com"</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 生成公钥、密钥的同时指定文件名，Github使用</span></span><br><span class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa_github -C "gckyoogle@gmail.com"</span><br></pre></td></tr></table></figure>
 <p>这里要求对秘钥进行命名，默认的文件名是<code>id_rsa</code>。为了方便区分，我这里命名为<code>id_rsa_github</code>。接下来的提示都直接进行回车，直到秘钥生成。通过<code>ls</code>命令，可以看到刚刚生成的密钥对<code>id_rsa_github</code>和<code>id_rsa_github.pub</code>，中<code>id_rsa_github.pub</code>是公钥。</p>
 <p>然后生成GitLab上通信的密钥对，假如我在公司内部邮箱是<a href="mailto:`keyou.chen@xxx.com" target="_blank" rel="noopener">`keyou.chen@xxx.com</a><code>，按照同样的步骤生成</code>id_rsa_gitlab`的秘钥对，命令为：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 生成公钥、密钥的同时指定文件名，Gitlab使用</span><br><span class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitlab -C "keyou.chen@xxx.com"</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 生成公钥、密钥的同时指定文件名，Gitlab使用</span></span><br><span class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitlab -C "keyou.chen@xxx.com"</span><br></pre></td></tr></table></figure>
 <h3 id="2-私钥添加到本地"><a href="#2-私钥添加到本地" class="headerlink" title="2.私钥添加到本地"></a>2.私钥添加到本地</h3><p>SSH协议的原理，就是在托管网站上使用公钥，在本地使用私钥，这样本地仓库就可以和远程仓库进行通信。在上一步已经生成了秘钥文件，接下来需要使用秘钥文件，首先是在本地使用秘钥文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 将GitHub私钥添加到本地</span><br><span class="line">ssh-add ~/.ssh/id_rsa_github </span><br><span class="line"><span class="meta">#</span> 将GitLab私钥添加到本地</span><br><span class="line">ssh-add ~/.ssh/id_rsa_gitlab</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将GitHub私钥添加到本地</span></span><br><span class="line">ssh-add ~/.ssh/id_rsa_github </span><br><span class="line"><span class="meta">#</span><span class="bash"> 将GitLab私钥添加到本地</span></span><br><span class="line">ssh-add ~/.ssh/id_rsa_gitlab</span><br></pre></td></tr></table></figure>
 <p>为了检验本地是否添加成功，可以使用<code>ssh-add -l</code>命令进行查看</p>
 <h3 id="3-管理本地密钥"><a href="#3-管理本地密钥" class="headerlink" title="3.管理本地密钥"></a>3.管理本地密钥</h3><p>由于添加了多个密钥文件，所以需要对这多个密钥进行管理。在<code>.ssh</code>目录下新建一个config文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br><span class="line">touch config</span><br></pre></td></tr></table></figure>
 <p>编辑<code>config</code>文件，添加以下内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 网站的别名，随意取</span><br><span class="line">Host github </span><br><span class="line"><span class="meta">#</span> 托管网站的域名</span><br><span class="line">HostName github.com </span><br><span class="line"><span class="meta">#</span> 托管网站上的用户名，GitHub用户名</span><br><span class="line">User ckyromgit </span><br><span class="line"><span class="meta">#</span> 使用的密钥文件</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> GitLab的配置与上面的GitHub类似</span><br><span class="line">Host gitlab</span><br><span class="line">HostName git.xxx.com</span><br><span class="line">User keyou.chen</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_gitlab</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 网站的别名，随意取</span></span><br><span class="line">Host github </span><br><span class="line"><span class="meta">#</span><span class="bash"> 托管网站的域名</span></span><br><span class="line">HostName github.com </span><br><span class="line"><span class="meta">#</span><span class="bash"> 托管网站上的用户名，GitHub用户名</span></span><br><span class="line">User ckyromgit </span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用的密钥文件</span></span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> GitLab的配置与上面的GitHub类似</span></span><br><span class="line">Host gitlab</span><br><span class="line">HostName git.xxx.com</span><br><span class="line">User keyou.chen</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_gitlab</span><br></pre></td></tr></table></figure>
 <h3 id="4-公钥添加到托管网站"><a href="#4-公钥添加到托管网站" class="headerlink" title="4.公钥添加到托管网站"></a>4.公钥添加到托管网站</h3><p>首先设置GitHub网站，步骤如下：</p>
 <ul>
 <li>访问GitHub网站，用户名密码登录</li>
