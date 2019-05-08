@@ -27,17 +27,17 @@
 <meta property="og:description" content="环境说明系统：macOS 10.13.6 idea版本：2018.3 idea安装gitlab插件1.安装gitlab插件(1) Settings =&amp;gt; Plugins 搜索 gitlab  (2) 点击install安装插件，安装完重启IDEA (3) 点击菜单栏 VCS =&amp;gt; Checkout from Version Control，可以看到有了gitlab选项了。 2.配置gi">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ckyromgit.github.io/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-install-gitlab.png">
-<meta property="og:image" content="https://ckyromgit.github.io/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-configure-gitlab.png">
-<meta property="og:image" content="https://ckyromgit.github.io/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-setting-gitlab.png">
-<meta property="og:image" content="https://ckyromgit.github.io/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-generate-token.png">
-<meta property="og:image" content="https://ckyromgit.github.io/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-copy-token.png">
-<meta property="og:image" content="https://ckyromgit.github.io/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-install-ignore.png">
-<meta property="og:image" content="https://ckyromgit.github.io/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-new-gitignore.png">
-<meta property="og:image" content="https://ckyromgit.github.io/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-generate-gitignore.png">
-<meta property="og:image" content="https://ckyromgit.github.io/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-install-gitflow.png">
-<meta property="og:image" content="https://ckyromgit.github.io/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-init-gitflow.png">
-<meta property="og:image" content="https://ckyromgit.github.io/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-gitflow-init-configure.png">
-<meta property="og:updated_time" content="2019-05-08T02:17:51.041Z">
+<meta property="og:image" content="https://ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-configure-gitlab.png">
+<meta property="og:image" content="https://ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-setting-gitlab.png">
+<meta property="og:image" content="https://ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-generate-token.png">
+<meta property="og:image" content="https://ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-copy-token.png">
+<meta property="og:image" content="https://ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-install-ignore.png">
+<meta property="og:image" content="https://ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-new-gitignore.png">
+<meta property="og:image" content="https://ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-generate-gitignore.png">
+<meta property="og:image" content="https://ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-install-gitflow.png">
+<meta property="og:image" content="https://ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-init-gitflow.png">
+<meta property="og:image" content="https://ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-gitflow-init-configure.png">
+<meta property="og:updated_time" content="2019-05-08T02:22:59.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="idea集成gitlab和gitflow插件">
 <meta name="twitter:description" content="环境说明系统：macOS 10.13.6 idea版本：2018.3 idea安装gitlab插件1.安装gitlab插件(1) Settings =&amp;gt; Plugins 搜索 gitlab  (2) 点击install安装插件，安装完重启IDEA (3) 点击菜单栏 VCS =&amp;gt; Checkout from Version Control，可以看到有了gitlab选项了。 2.配置gi">
@@ -405,32 +405,32 @@
 <p>(2) 点击<code>install</code>安装插件，安装完重启IDEA</p>
 <p>(3) 点击菜单栏 VCS =&gt; Checkout from Version Control，可以看到有了gitlab选项了。</p>
 <h3 id="2-配置gitlab插件"><a href="#2-配置gitlab插件" class="headerlink" title="2.配置gitlab插件"></a>2.配置gitlab插件</h3><p>(1) Settings =&gt; Version Control =&gt; GitLab</p>
-<p><img src="/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-configure-gitlab.png" alt="image-configure-gitlab"></p>
+<p><img src="//ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-configure-gitlab.png" alt="image-configure-gitlab"></p>
 <p>(2) 获取gitlab私有访问token</p>
 <p>上一步配置gitlab时需要用到gitlab的个人私有访问token，这个token需要用你的账号登录gitlab</p>
-<p><img src="/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-setting-gitlab.png" alt="image-setting-gitlab"></p>
+<p><img src="//ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-setting-gitlab.png" alt="image-setting-gitlab"></p>
 <p>点击<code>访问令牌</code>，填写相关信息，生成访问token</p>
-<p><img src="/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-generate-token.png" alt="image-generate-token"></p>
+<p><img src="//ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-generate-token.png" alt="image-generate-token"></p>
 <p>然后把生成的token拷贝到IDEA</p>
-<p><img src="/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-copy-token.png" alt="image-copy-token"></p>
+<p><img src="//ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-copy-token.png" alt="image-copy-token"></p>
 <h3 id="3-验证"><a href="#3-验证" class="headerlink" title="3.验证"></a>3.验证</h3><p>点击菜单栏 VCS =&gt; Checkout from Version Control =&gt; GitLab</p>
 <h1 id="idea安装-ignore插件"><a href="#idea安装-ignore插件" class="headerlink" title="idea安装.ignore插件"></a>idea安装.ignore插件</h1><p>当我们用IDEA打开工程项目的时候，IDEA会自动帮我们生成一些与项目无关的文件或文件夹，比如<code>.idea</code>文件夹和<code>*.iml</code>等文件，这些严格来说是不应该上传到gitlab上的。为了在提交的时候忽略这些无关的文件，可以编写<code>.gitignore</code>文件来达到这一目的，IDEA有一个.ignore插件可以帮我们完成这个需求。</p>
 <h3 id="1-安装-ignore插件"><a href="#1-安装-ignore插件" class="headerlink" title="1.安装.ignore插件"></a>1.安装.ignore插件</h3><p>(1) Settings =&gt; Plugins 搜索 <code>.ignore</code></p>
-<p><img src="/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-install-ignore.png" alt="image-install-ignore"></p>
+<p><img src="//ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-install-ignore.png" alt="image-install-ignore"></p>
 <p>(2) 点击<code>install</code>安装插件，安装完重启IDEA</p>
 <h3 id="2-新建-gitignore文件"><a href="#2-新建-gitignore文件" class="headerlink" title="2.新建.gitignore文件"></a>2.新建.gitignore文件</h3><p>(1) 项目右键 =&gt; New  =&gt; .ignore file =&gt; .gitignore file(Git)</p>
-<p><img src="/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-new-gitignore.png" alt="image-new-gitignore"> </p>
+<p><img src="//ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-new-gitignore.png" alt="image-new-gitignore"> </p>
 <p>(2) 勾选Example user template，点击<code>Generate</code>生成</p>
-<p><img src="/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-generate-gitignore.png" alt="image-generate-gitignore"></p>
+<p><img src="//ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-generate-gitignore.png" alt="image-generate-gitignore"></p>
 <p>至此，配置的文件和文件夹自动就被忽略了；当然你可以手动添加到<code>.gitignore</code>文件中，方法为：</p>
 <p>右键文件 =&gt; Add to .gitignore file</p>
 <h1 id="idea安装gitflow插件"><a href="#idea安装gitflow插件" class="headerlink" title="idea安装gitflow插件"></a>idea安装gitflow插件</h1><h3 id="1-安装gitflow"><a href="#1-安装gitflow" class="headerlink" title="1.安装gitflow"></a>1.安装gitflow</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git-flow</span><br></pre></td></tr></table></figure>
 <h3 id="2-idea安装gitflow插件"><a href="#2-idea安装gitflow插件" class="headerlink" title="2.idea安装gitflow插件"></a>2.idea安装gitflow插件</h3><p>(1) Settings =&gt; Plugins 搜索 <code>git flow</code></p>
-<p><img src="/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-install-gitflow.png" alt="image-install-gitflow"></p>
+<p><img src="//ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-install-gitflow.png" alt="image-install-gitflow"></p>
 <p>(2) gitflow init ，点击IDEA右下角<code>No Gitflow</code></p>
-<p><img src="/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-init-gitflow.png" alt="image-init-gitflow"></p>
+<p><img src="//ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-init-gitflow.png" alt="image-init-gitflow"></p>
 <p>修改默认配置，分支名称前缀统一风格</p>
-<p><img src="/Users/huiwang/data/gitPages/ckyblog/source/_posts/idea%E9%9B%86%E6%88%90gitlab%E5%92%8Cgitflow%E6%8F%92%E4%BB%B6/image-gitflow-init-configure.png" alt="image-gitflow-init-configure"></p>
+<p><img src="//ckyromgit.github.io/2019/05/08/idea集成gitlab和gitflow插件/image-gitflow-init-configure.png" alt="image-gitflow-init-configure"></p>
 <p><strong>说明</strong>：<em>如果git flow init 失败，很可能是当前工作区不干净，可以用<code>git status</code>查看是否还有更改没有提交，先执行<code>git commit</code>命令提交完再执行 git flow init</em></p>
 
       
